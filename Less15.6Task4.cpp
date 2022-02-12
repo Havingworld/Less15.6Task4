@@ -45,20 +45,21 @@ int main()
               cout << numbers[nMin] << " ";
               break;
             }
-        }   
-    for (int j = 1, k = 1; nMin - j >= 0 || nMin + k < numbers.size()-1;)
+        }  
+    //while (j >= 0 || i < v.size()) {
+    //int res = (j >= 0 && (i == v.size() || v[i] > -v[j]) ? v[j--] : v[i++]);
+
+    for (int j = 1, k = 1; nMin - j >= 0 || nMin + k < numbers.size();)
     {
-        if (abs(numbers[nMin - j]) > abs(numbers[nMin + k]))
+        if (nMin - j >= 0 && (nMin + k == numbers.size() || abs(numbers[nMin - j]) < abs(numbers[nMin + k])))
         {
-            
-            cout << numbers[nMin + k] << " ";
-            if (nMin + k < numbers.size() - 1) ++k;
+            cout << numbers[nMin - j++] << " ";
+            //if (nMin - j >= 0) ++j;
         }
         else
-        {
-            
-            cout << numbers[nMin - j] << " ";
-            if (nMin - j > 0) ++j;
+        {         
+            cout << numbers[nMin + k++] << " ";
+            //if (nMin + k < numbers.size()) ++k;
         }
     }
 
